@@ -11,11 +11,8 @@ interface Web3State {
   error: string | null;
 }
 
-const CONTRACT_ADDRESS = "0x57a384da1eb2A06d392d6566C8bA9c0199d10071"; //Add Contract Address
+const CONTRACT_ADDRESS = "0x3f60B8aE0B5FC832DBdEBFfE071d34aB3Bb0DF6e"; 
 const CONTRACT_ABI = [
-  // Add contract ABI 
-  
-
 	{
 		"anonymous": false,
 		"inputs": [
