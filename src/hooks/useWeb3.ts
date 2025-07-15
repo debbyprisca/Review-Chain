@@ -11,72 +11,11 @@ interface Web3State {
   error: string | null;
 }
 
-const CONTRACT_ADDRESS = '0xd9145CCE52D386f254917e481eB44e9943F39138'; //Add Contract Address
+const CONTRACT_ADDRESS = "0x57a384da1eb2A06d392d6566C8bA9c0199d10071"; //Add Contract Address
 const CONTRACT_ABI = [
   // Add contract ABI 
   
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_category",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_description",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_website",
-				"type": "string"
-			}
-		],
-		"name": "addInstitution",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_institutionId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_rating",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_content",
-				"type": "string"
-			}
-		],
-		"name": "addReview",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
+
 	{
 		"anonymous": false,
 		"inputs": [
@@ -147,14 +86,76 @@ const CONTRACT_ABI = [
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "MAX_RATING",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_category",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_website",
+				"type": "string"
+			}
+		],
+		"name": "addInstitution",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
 				"name": "_institutionId",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_rating",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_content",
+				"type": "string"
 			}
 		],
-		"name": "toggleInstitutionStatus",
+		"name": "addReview",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -516,19 +517,6 @@ const CONTRACT_ABI = [
 	},
 	{
 		"inputs": [],
-		"name": "MAX_RATING",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "reviewCount",
 		"outputs": [
 			{
@@ -597,6 +585,19 @@ const CONTRACT_ABI = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_institutionId",
+				"type": "uint256"
+			}
+		],
+		"name": "toggleInstitutionStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
@@ -618,8 +619,7 @@ const CONTRACT_ABI = [
 		"stateMutability": "view",
 		"type": "function"
 	}
- 
-];
+]
 
 export const useWeb3 = () => {
   const [web3State, setWeb3State] = useState<Web3State>({
