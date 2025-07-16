@@ -164,8 +164,7 @@ const App: React.FC = () => {
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
             <p className="text-gray-600">Loading institutions...</p>
-          </div>
-        ) : filteredInstitutions.length === 0 ? (
+          </div>): filteredInstitutions.length == 0 ? (
           <div className="text-center py-12">
             <div className="bg-white rounded-xl shadow-md p-12">
               <div className="text-6xl mb-4">🏢</div>
@@ -188,7 +187,8 @@ const App: React.FC = () => {
               )}
             </div>
           </div>
-        ) : (
+        ) 
+        :(
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredInstitutions.map(institution => (
               <InstitutionCard

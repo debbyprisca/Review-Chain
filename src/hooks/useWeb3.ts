@@ -11,6 +11,7 @@ interface Web3State {
   error: string | null;
 }
 
+
 const CONTRACT_ADDRESS = "0x3f60B8aE0B5FC832DBdEBFfE071d34aB3Bb0DF6e"; 
 const CONTRACT_ABI = [
 	{
@@ -619,7 +620,8 @@ const CONTRACT_ABI = [
 ]
 
 export const useWeb3 = () => {
-  const [web3State, setWeb3State] = useState<Web3State>({
+	const [Connect,setConnected] = useState(false)
+	const [web3State, setWeb3State] = useState<Web3State>({
     provider: null,
     signer: null,
     account: null,
@@ -638,11 +640,10 @@ export const useWeb3 = () => {
       }
 
       const provider = new ethers.BrowserProvider(window.ethereum);
-      await provider.send("eth_requestAccounts", []);
-      
+	  const accounts= await provider.send("eth_requestAccounts", []);
       const signer = await provider.getSigner();
-      const account = await signer.getAddress();
-      
+	  setConnected(true)
+      const account = accounts[0];
       const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 
       setWeb3State({
@@ -664,8 +665,10 @@ export const useWeb3 = () => {
     }
   };
 
-  const disconnectWallet = () => {
-    setWeb3State({
+  const disconnectWallet = async () => {
+	await window.ethereum.request({method:"wallet_revokePermissions",params:[{"eth_accounts":{}}]})
+    setConnected(false)
+	setWeb3State({
       provider: null,
       signer: null,
       account: null,
@@ -705,7 +708,7 @@ export const useWeb3 = () => {
     };
 
     checkConnection();
-  }, []);
+  }, [Connect]);
 
   return {
     ...web3State,
