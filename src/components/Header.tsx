@@ -23,13 +23,16 @@ const Header: React.FC = () => {
 
           <div className="flex items-center space-x-4">
             {isConnected ? (
+              
+              
+
               <div className="flex items-center space-x-3">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
                   <p className="text-sm text-blue-100">Connected</p>
                   <p className="font-medium">{formatAddress(account!)}</p>
                 </div>
                 <button
-                  onClick={disconnectWallet}
+                  onClick={disconnectWallet }
                   className="flex items-center space-x-2 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition-colors"
                 >
                   <LogOut className="w-4 h-4" />

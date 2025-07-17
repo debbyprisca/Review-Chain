@@ -187,8 +187,8 @@ const App: React.FC = () => {
               )}
             </div>
           </div>
-        ) 
-        :(
+        ) :'' }
+       {isConnected ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredInstitutions.map(institution => (
               <InstitutionCard
@@ -199,7 +199,7 @@ const App: React.FC = () => {
               />
             ))}
           </div>
-        )}
+        ) : ''}
       </main>
 
       <AddInstitutionModal

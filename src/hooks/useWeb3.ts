@@ -655,6 +655,7 @@ export const useWeb3 = () => {
         isLoading: false,
         error: null,
       });
+	  window.location.reload();
 
     } catch (error) {
       setWeb3State(prev => ({
@@ -677,6 +678,7 @@ export const useWeb3 = () => {
       isLoading: false,
       error: null,
     });
+	window.location.reload();
   };
 
   useEffect(() => {
