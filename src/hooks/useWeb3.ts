@@ -12,7 +12,7 @@ interface Web3State {
 }
 
 
-const CONTRACT_ADDRESS = "0x3f60B8aE0B5FC832DBdEBFfE071d34aB3Bb0DF6e"; 
+const CONTRACT_ADDRESS = "0xFd7fAcf238dcdf99d0395f28A5ce1d8119808226"; 
 const CONTRACT_ABI = [
 	{
 		"anonymous": false,

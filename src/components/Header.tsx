@@ -16,7 +16,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-3">
             <Building2 className="w-8 h-8 text-blue-300" />
             <div>
-              <h1 className="text-2xl font-bold">InstitutionReview</h1>
+              <h1 className="text-2xl font-bold">TrustSeal</h1>
               <p className="text-blue-200 text-sm">Decentralized Review Platform</p>
             </div>
           </div>
