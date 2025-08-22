@@ -8,8 +8,10 @@ import AddInstitutionModal from './components/AddInstitutionModal';
 import AddReviewModal from './components/AddReviewModal';
 import ReviewsModal from './components/ReviewsModal';
 import SearchAndFilter from './components/SearchAndFilter';
+import sdk from "@farcaster/miniapp-sdk";
 
 const App: React.FC = () => {
+   sdk.actions.ready();
   const { contract, isConnected, error } = useWeb3();
   const [institutions, setInstitutions] = useState<Institution[]>([]);
   const [filteredInstitutions, setFilteredInstitutions] = useState<Institution[]>([]);
